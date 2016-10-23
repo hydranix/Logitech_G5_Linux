@@ -11,10 +11,10 @@
 //     Peter "piie" Feuerer <peter.feuerer@linuX-gamers.net>
 //
 //  g5_hiddev felt very sloppy to me and had a lot of redundant
-//    code so I took the important parts and removed to need
+//    code so I took the important parts and removed the need
 //    to pass the hid device as a parameter while also only
-//    targetting the G5 and not the other devies.
-//  Instead of a selectable DPI i chose to just set the DPI to
+//    targetting the G5 and not the other devices.
+//  Instead of a selectable DPI I chose to set the DPI to
 //    its max.
 //
 
@@ -38,7 +38,10 @@ namespace fs = std::experimental::filesystem;
 
 bool SendReport(int fd, std::vector<uint8_t> vMsg);
 
+// does not work for me
 #define DISABLE_SPEED_BUTTONS {0x00, 0x80, 0x01, 0x00, 0x00, 0x00}
+
+// DPI settings in case someone needs them
 #define SET_DPI_MIN           {0x00, 0x80, 0x63, 0x80, 0x00, 0x00}
 #define SET_DPI_LOW           {0x00, 0x80, 0x63, 0x81, 0x00, 0x00}
 #define SET_DPI_HIGH          {0x00, 0x80, 0x63, 0x82, 0x00, 0x00}
