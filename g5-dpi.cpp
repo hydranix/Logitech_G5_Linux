@@ -31,7 +31,7 @@
 #include <iostream>
 #include <experimental/filesystem>
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 #define USB_VEN 0x046d
 #define USB_DEV 0xc049
