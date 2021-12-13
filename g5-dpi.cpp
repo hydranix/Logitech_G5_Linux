@@ -36,7 +36,7 @@ namespace fs = std::filesystem;
 #define USB_VEN 0x046d
 #define USB_DEV 0xc049
 
-bool SendReport(int fd, std::vector<uint8_t> vMsg);
+bool SendReport(int fd, std::vector<uint8_t>& vMsg);
 
 // does not work for me
 #define DISABLE_SPEED_BUTTONS {0x00, 0x80, 0x01, 0x00, 0x00, 0x00}
@@ -92,12 +92,12 @@ int main()
   return 0;
 }
 
-bool SendReport(int fd, std::vector<uint8_t> vMsg)
+bool SendReport(int fd, std::vector<uint8_t>& vMsg)
 {
   if(vMsg.size() != 6)
     return false;
   int i=0;
-  for(auto b : vMsg)
+  for(auto& b : vMsg)
   {
     hiddev_usage_ref hur = {0};
     hur.report_type = HID_REPORT_TYPE_OUTPUT;
